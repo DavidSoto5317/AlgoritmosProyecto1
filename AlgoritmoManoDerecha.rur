@@ -1,16 +1,16 @@
-#El objetivo de este programa es desplazar al robot por el laberinto hasta su salida
-#utilizando el algoritmo "De la mano Derecha"
-
-#Definicion que permite que girando tres veces a la izquierda sea lo mismo que girar a la derecha
-def turn_right():
-    repeat(turn_left, 3)
-#Mueve al robot hacia un camino despejado o libre
-def find_path():
-    while not front_is_clear():
-        turn_left()
+#El objetivo de este programa es desplazar al robot por el laberinto hasta su salida
+#utilizando el algoritmo "De la mano Derecha"
+
+#Definicion que permite que girando tres veces a la izquierda sea lo mismo que girar a la derecha
+def turn_right():
+    repeat(turn_left, 3)
+#Mueve al robot hacia un camino despejado o libre
+def find_path():
+    while not front_is_clear():
+        turn_left()
     move()
-#Permite que el robot siga a la pared derecha si esta libre o si el frente esta libre
-#lo mueve hacia adelante
+#Permite que el robot siga a la pared derecha si esta libre o si el frente esta libre
+#lo mueve hacia adelante
 #O si ninguna condicion se cumple, gira a la izquierda
 def follow_right_wall():
     if right_is_clear(): 
@@ -20,8 +20,8 @@ def follow_right_wall():
         move()
     else: 
         turn_left()
-#Se define que el obstaculo es estar seguido de un beeper y 
-#nos ayudara a que el Robot termine el programa cuando lo vea
+#Se define que el obstaculo es estar seguido de un beeper y 
+#nos ayudara a que el Robot termine el programa cuando lo vea
 #ya que estara en la salida del laberinto
 obstacle = next_to_a_beeper
 #Aqui comienza el algoritmo
