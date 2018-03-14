@@ -67,9 +67,7 @@ int follow_right_wall(int right, int left){
       pause(500);
       return 2;
     }else{ //En caso de que haya algo a la derecha y al frente
-      turn_left(); //Gira a la izquierda
-      pause(500); //Toma una pausa
-      return 0;
+    
     }  
 }  
 int main()                                    // Main function
@@ -88,9 +86,6 @@ int main()                                    // Main function
     input(puerto al que se conecta
     */
     while(ping_cm(sensor_pin) > 5){
-      freqout(11,1,38000); //Hace que la luz infrared de la izquierda se active con una potencia de 38000
-      irLeft = input(10); //Permite que el sensor de la izquierda pueda detectar si la luz infraroja rebota en un objeto cercano devolviendo un 0, en caso de que no lo haga devuelve un 1
-      pause(100); //Toma una pausa pequeña
       freqout(1,1,38000); //Hace que la luz infrared de la derecha se active con una potencia de 38000
       irRight = input(2); //Permite que el sensor de la derecha pueda detectar si la luz infraroja rebota en un objeto cercano devolviendo un 0, en caso de que no lo haga devuelve un 1
       pause(100); //Toma otra pausa pequeña
@@ -104,9 +99,6 @@ int main()                                    // Main function
       //Se detiene y aplica el algoritmo de la mano derecha ya que detecto que no hay nada a su derecha  
       }else{
         drive_speed(0,0);
-        freqout(11,1,38000); //Hace que la luz infrared de la izquierda se active con una potencia de 19000
-        irLeft = input(10); //Permite que el sensor de la izquierda pueda detectar si la luz infraroja rebota en un objeto cercano devolviendo un 0, en caso de que no lo haga devuelve un 1
-        pause(100); //Toma una pausa pequeña
         freqout(1,1,38000); //Hace que la luz infrared de la derecha se active con una potencia de 19000
         irRight = input(2); //Permite que el sensor de la derecha pueda detectar si la luz infraroja rebota en un objeto cercano devolviendo un 0, en caso de que no lo haga devuelve un 1
         pause(100); //Toma otra pausa pequeña
@@ -115,9 +107,6 @@ int main()                                    // Main function
     }
     //Cuando tenga algo al frente va a revisar nuevamente con el algoritmo de la mano derecha (En este punto lo mas probable es que elija izquierda pero se hace el proceso para verificar que los sensores hayan detectado las cosas bien)
     drive_speed(0,0);
-    freqout(11,1,38000); //Hace que la luz infrared de la izquierda se active con una potencia de 19000
-    irLeft = input(10); //Permite que el sensor de la izquierda pueda detectar si la luz infraroja rebota en un objeto cercano devolviendo un 0, en caso de que no lo haga devuelve un 1
-    pause(100); //Toma una pausa pequeña
     freqout(1,1,38000); //Hace que la luz infrared de la derecha se active con una potencia de 19000
     irRight = input(2); //Permite que el sensor de la derecha pueda detectar si la luz infraroja rebota en un objeto cercano devolviendo un 0, en caso de que no lo haga devuelve un 1
     pause(100); //Toma otra pausa pequeña
