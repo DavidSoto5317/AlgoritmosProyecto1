@@ -23,7 +23,7 @@ int verificadorRight = 0;
  */
 void move() 
 {
-  drive_goto(32,32); //(rueda izquierda, rueda derecha)
+  drive_goto(10,10); //(rueda izquierda, rueda derecha)
 }
 /*
  //Metodo para que el robot gire a la izquierda
@@ -47,7 +47,8 @@ void find_path()
   while(ping_cm(sensor_pin) < 5){ //Mientras el Sensor Ultrasonico PING detecte un objeto a menos de 4 cm
     turn_left(); //Gira a la izquierda
     pause(500); //Toma una pausa
-  }  
+  }
+  move();  
 }
 /*
  Metodo que permite que el robot siga el Algoritmo de la mano derecha modificado
