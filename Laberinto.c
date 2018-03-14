@@ -44,7 +44,7 @@ void turn_right()
  */  
 void find_path() 
 {
-  while(ping_cm(sensor_pin) < 4){ //Mientras el Sensor Ultrasonico PING detecte un objeto a menos de 4 cm
+  while(ping_cm(sensor_pin) < 5){ //Mientras el Sensor Ultrasonico PING detecte un objeto a menos de 4 cm
     turn_left(); //Gira a la izquierda
     pause(500); //Toma una pausa
   }  
@@ -87,7 +87,7 @@ int main()                                    // Main function
     Freqout(puerto al que se conecta, encendido, potencia)
     input(puerto al que se conecta
     */
-    while(ping_cm(sensor_pin) > 4){
+    while(ping_cm(sensor_pin) > 5){
       freqout(11,1,38000); //Hace que la luz infrared de la izquierda se active con una potencia de 38000
       irLeft = input(10); //Permite que el sensor de la izquierda pueda detectar si la luz infraroja rebota en un objeto cercano devolviendo un 0, en caso de que no lo haga devuelve un 1
       pause(100); //Toma una pausa pequeña
