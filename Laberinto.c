@@ -14,7 +14,7 @@
 #include "abdrive.h"                          // Include abdrive header
 #include "ping.h"                             // Include ping header
 
-int irLeft, irRight, irL, irR; //Se inicializan las variables para los sensores laterales Infrared
+int irRight, irR; //Se inicializan las variables para los sensores laterales Infrared
 int sensor_pin = 8; //Se inicializa la variable del pin al que se conecta SIG del Sensor Utrasonico PING
 int distancia = 0;
 int verificadorRight = 0;
@@ -54,7 +54,7 @@ void find_path()
  @param right El cual indica si es un 1 que no hay nada a la derecha del robot y si es 0 indica que hay algo a su derecha 
  @param left El cual indica si es un 1 que no hay nada a la izquierda del robot y si es 0 indica que hay algo a su izquierda
  */
-int follow_right_wall(int right, int left){
+int follow_right_wall(int right){
     if(right == 1){ //Si no hay nada a su derecha
       pause(500);
       turn_right(); //Gira  a la derecha
@@ -102,7 +102,7 @@ int main()                                    // Main function
         freqout(1,1,38000); //Hace que la luz infrared de la derecha se active con una potencia de 19000
         irRight = input(2); //Permite que el sensor de la derecha pueda detectar si la luz infraroja rebota en un objeto cercano devolviendo un 0, en caso de que no lo haga devuelve un 1
         pause(100); //Toma otra pausa pequeña
-        follow_right_wall(irRight,irLeft);  //Se mandan los parametros de los infred al algoritmo de la mano derecha
+        follow_right_wall(irRight);  //Se mandan los parametros de los infred al algoritmo de la mano derecha
       }
     }
     //Cuando tenga algo al frente va a revisar nuevamente con el algoritmo de la mano derecha (En este punto lo mas probable es que elija izquierda pero se hace el proceso para verificar que los sensores hayan detectado las cosas bien)
@@ -110,6 +110,6 @@ int main()                                    // Main function
     freqout(1,1,38000); //Hace que la luz infrared de la derecha se active con una potencia de 19000
     irRight = input(2); //Permite que el sensor de la derecha pueda detectar si la luz infraroja rebota en un objeto cercano devolviendo un 0, en caso de que no lo haga devuelve un 1
     pause(100); //Toma otra pausa pequeña
-    follow_right_wall(irRight,irLeft);  //Se mandan los parametros de los infred al algoritmo de la mano derecha    
+    follow_right_wall(irRight);  //Se mandan los parametros de los infred al algoritmo de la mano derecha    
   }
 }
